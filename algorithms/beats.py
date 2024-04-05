@@ -49,11 +49,15 @@ dataSetSize = data.size
 lower = (data.size//2)//2
 upper = lower+int(2.2 * samplerate)
 sampled_clip = data[lower:upper]
+# time_sampled_clip = np.linspace(0., sampled_clip.size/samplerate/2, sampled_clip.shape[0])
+
+# createPlot(time_sampled_clip, sampled_clip, "Time", "Amplitude", "2.2s Sampled Clip")
 
 # Phase 1: Filterbank
 X_FFT = fft(sampled_clip)
-n = np.arange(0, len(X_FFT))
-freq = n/(len(X_FFT)/samplerate)
+plt.plot(abs(X_FFT[:(len(X_FFT)//2-1)]), 'r')
+plt.xlabel = (np.arange(len(sampled_clip)))/(len(sampled_clip)/samplerate)
+plt.show()
 
 # # writing to wave file using scipy
 # wavfile.write('dataset/exports/sample1_zeroed.wav', samplerate, data)
